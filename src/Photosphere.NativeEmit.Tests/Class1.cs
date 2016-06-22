@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Photosphere.NativeEmit
+namespace Photosphere.NativeEmit.Tests
 {
     public class Class1
     {

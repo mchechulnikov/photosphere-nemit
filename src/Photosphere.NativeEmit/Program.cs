@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Photosphere.NativeEmit.External;
 
-namespace DynamicX86
+namespace Photosphere.NativeEmit
 {
     // generate native method that returns 42
     internal class Program
@@ -10,8 +11,7 @@ namespace DynamicX86
         const uint PageExecuteReadwrite = 0x40;
         const uint MemCommit = 0x1000;
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        private static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+        
 
         private delegate int IntReturner();
 
@@ -22,7 +22,7 @@ namespace DynamicX86
             bodyBuilder.AddRange(BitConverter.GetBytes(42));
             bodyBuilder.Add(0xc3);
             var body = bodyBuilder.ToArray();
-            var buf = VirtualAlloc(IntPtr.Zero, (uint)body.Length, MemCommit, PageExecuteReadwrite);
+            var buf = Kernel32.VirtualAlloc(IntPtr.Zero, (uint)body.Length, MemCommit, PageExecuteReadwrite);
             Marshal.Copy(body, 0, buf, body.Length);
 
             var ptr = (IntReturner)Marshal.GetDelegateForFunctionPointer(buf, typeof(IntReturner));
