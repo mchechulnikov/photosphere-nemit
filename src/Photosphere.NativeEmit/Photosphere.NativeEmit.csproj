@@ -41,12 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\AsBytesExtensions.cs" />
-    <Compile Include="x86\Emitter.cs" />
+    <Compile Include="External\Enums\AllocationType.cs" />
+    <Compile Include="External\Enums\MemoryProtection.cs" />
+    <Compile Include="x86\Delegates.cs" />
+    <Compile Include="x86\NativeMethodBuilder.cs" />
     <Compile Include="External\Kernel32.cs" />
     <Compile Include="x86\Enums\OpCode.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="x86\Enums\Register.cs" />
+    <Compile Include="x86\NativeMethodGenerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
