@@ -16,7 +16,10 @@ namespace Photosphere.NativeEmit
 
         public static int Get42()
         {
-            var body = new Emitter().Mov(Register.Eax, 42).Ret().ToArray();
+            var body = new Emitter()
+                .Mov(Register.Eax, 42)
+                .Ret()
+                .ToArray();
             var buf = Kernel32.VirtualAlloc(IntPtr.Zero, (uint)body.Length, MemCommit, PageExecuteReadwrite);
             Marshal.Copy(body, 0, buf, body.Length);
 
