@@ -1,5 +1,5 @@
 # Photosphere.NativeEmit
-Elementary x86 machine code emmiter for .NET.
+Prototype of elementary x86 machine code emmiter for .NET.
 
 ## Status
 [![Windows build Status](https://ci.appveyor.com/api/projects/status/github/sunloving/photosphere-nemit?retina=true&svg=true)](https://ci.appveyor.com/project/sunloving/photosphere-nemit)
